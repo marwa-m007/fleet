@@ -32,6 +32,8 @@ class VehiclesController extends Controller
             'model' => $request->model,
         ]);
 
+        $bus->generateSeats();
+
         return redirect()->route('vehicles');
     }
 }

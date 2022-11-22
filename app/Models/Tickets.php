@@ -12,13 +12,27 @@ class Tickets extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'userid');
     }
 
     public function seat()
     {
-        return $this->belongsTo(Seats::class);
+        return $this->belongsTo(Seats::class,'seat_id');
     }
 
+    public function bus()
+    {
+        return $this->belongsTo(Vehicles::class,'vehicle_id');
+    }
+
+    public function stationFrom()
+    {
+        return $this->belongsTo(Stations::class,'station_from');
+    }
+
+    public function stationTo()
+    {
+        return $this->belongsTo(Stations::class,'station_to');
+    }
 
 }

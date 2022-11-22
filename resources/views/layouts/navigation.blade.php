@@ -12,8 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('book')" :active="request()->routeIs('book')">
+                        {{ __('Book') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('tickets')" :active="request()->routeIs('tickets')">
-                        {{ __('Booking') }}
+                        {{ __('Tickets') }}
                     </x-nav-link>
                     <x-nav-link :href="route('stations')" :active="request()->routeIs('stations')">
                         {{ __('Stations') }}
@@ -73,6 +76,9 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            <x-nav-link :href="route('book')" :active="request()->routeIs('book')">
+                {{ __('Book') }}
+            </x-nav-link>
             <x-nav-link :href="route('tickets')" :active="request()->routeIs('tickets')">
                 {{ __('Tickets') }}
             </x-nav-link>

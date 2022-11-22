@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StationsController;
+use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\VehiclesController;
+use App\Models\Tickets;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('tickets');
+Route::get('/dashboard', [TicketsController::class,'add'])->middleware(['auth', 'verified'])->name('book');
+Route::get('/tickets', [TicketsController::class,'index'])->middleware(['auth', 'verified'])->name('tickets');
+
+Route::post('/seats', [TicketsController::class,'seats'])->middleware(['auth', 'verified'])->name('seats');
 
 Route::get('/stations', [StationsController::class,'index'])->middleware(['auth', 'verified'])->name('stations');
 

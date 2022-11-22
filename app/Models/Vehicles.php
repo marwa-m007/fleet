@@ -9,7 +9,7 @@ class Vehicles extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['number',"model"];
+    protected $fillable = ['number', "model"];
 
     public function seats()
     {
@@ -19,6 +19,13 @@ class Vehicles extends Model
 
     public function generateSeats()
     {
-        # code...
+        $id = $this->id;
+        if ($id) {
+            $seat = ['vehicle_id' => $id];
+            for ($i = 1; $i <= 12; $i++) {
+                $seat['number'] = $this->number .'-'.$i;
+                Seats::create($seat);
+            }
+        }
     }
 }
