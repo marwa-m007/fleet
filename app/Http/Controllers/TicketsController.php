@@ -28,7 +28,7 @@ class TicketsController extends Controller
 
     public function seats(Request $request)
     {
-        $msg = "All Tickets has been booked .";
+        $msg = "All Tickets has been booked try another date.";
         $request->validate([
             'day' => 'required|after:' . Carbon::now()->format('m/d/Y'),
             'station_from' => 'required',

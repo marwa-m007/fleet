@@ -17,7 +17,8 @@ class VehiclesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'number'=> fake()->number(7),
+            'model'=> fake()->sentence(5)
         ];
     }
 }
