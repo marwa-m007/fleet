@@ -20,5 +20,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $cities = [
+            "Cairo", "Giza", "Alexandria", "Beheira", "Matrouh", "Fayoum", "Port Said", "Damietta", "Gharbiya", "Ismailia", "Menofia", "Red Sea",
+            "Minya", "Luxor", "Qena", "Sohag", "Aswan"
+        ];
+
+        foreach ($cities as $city) {
+            \App\Models\Stations::create([
+                'name' => $city,
+            ]);
+        }
     }
 }

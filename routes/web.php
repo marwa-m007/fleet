@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StationsController;
+use App\Http\Controllers\VehiclesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +22,15 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('tickets');
+
+Route::get('/stations', [StationsController::class,'index'])->middleware(['auth', 'verified'])->name('stations');
+
+Route::get('/vehicles', [VehiclesController::class,'index'])->middleware(['auth', 'verified'])->name('vehicles');
+
+Route::get('/addbus', [VehiclesController::class,'add'])->middleware(['auth', 'verified'])->name('addbus');
+
+Route::post('/storebus', [VehiclesController::class,'store'])->middleware(['auth', 'verified'])->name('storebus');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
