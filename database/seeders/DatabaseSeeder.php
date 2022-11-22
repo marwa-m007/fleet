@@ -31,5 +31,10 @@ class DatabaseSeeder extends Seeder
                 'name' => $city,
             ]);
         }
+
+         \App\Models\Vehicles::factory()->count(3)->make()->each(function ($v) {
+            $v->generateSeats();
+        });
+
     }
 }

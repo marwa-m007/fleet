@@ -21,10 +21,12 @@ return new class extends Migration
             $table->unsignedBigInteger('station_from');
             $table->unsignedBigInteger('station_to');
             $table->unsignedBigInteger('userid');
+            $table->unsignedBigInteger('vehicle_id');
             $table->foreign('seat_id')->references('id')->on('seats');
             $table->foreign('station_from')->references('id')->on('stations');
             $table->foreign('station_to')->references('id')->on('stations');
             $table->foreign('userid')->references('id')->on('users');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->timestamps();
         });
     }
